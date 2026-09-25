@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Misión OSI: El Ensamble - Universidad Rosario Castellanos</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1e1e24;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+        h1 { color: #00adb5; margin-bottom: 5px; }
+        .autor { color: #aaaaaa; font-style: italic; margin-top: 0; }
+        
+        .timer-container {
+            font-size: 24px;
+            font-weight: bold;
+            background-color: #ff2e63;
+            padding: 10px 20px;
+            display: inline-block;
+            border-radius: 20px;
+            margin: 10px 0;
+            box-shadow: 0 4px 10px rgba(255, 46, 99, 0.4);
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #2a2a35;
+            padding: 25px;
+            border-radius: 12px;
+            border: 2px solid #00adb5;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+        }
+        
+        .instrucciones {
+            font-size: 16px;
+            color: #e0e0e0;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .tabla-osi {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 15px;
+            margin-top: 10px;
+        }
+
+        .fila-capa {
+            background-color: #111116;
+            border-radius: 8px;
+        }
+
+        .celda-info {
+            padding: 20px;
+            text-align: left;
+            border-radius: 8px 0 0 8px;
+            border: 1px solid #444;
+            border-right: none;
+            width: 60%;
+        }
+
+        .celda-info h3 {
+            margin: 0 0 5px 0;
+            color: #ffb400;
+            font-size: 16px;
+        }
+
+        .celda-info p {
+            margin: 0;
+            color: #bbbbbb;
+            font-size: 13px;
+        }
+
+        .celda-seleccion {
+            padding: 20px;
+            text-align: center;
+            border-radius: 0 8px 8px 0;
+            border: 1px solid #444;
+            border-left: none;
+            width: 40%;
+            vertical-align: middle;
+        }
+
+        select {
+            width: 95%;
+            padding: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            background-color: #3f3f4e;
+            color: #ffffff;
+            border: 2px solid #00adb5;
+            border-radius: 6px;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .controles-btn {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        #btn-verificar {
+            background-color: #00adb5;
+            color: white;
+        }
+        
+        #btn-reiniciar {
+            background-color: #3f3f4e;
+            color: white;
+            border: 2px solid #555;
+        }
+
+        .resultado {
+            margin-top: 25px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🖥️ Misión Streaming: El Ensamble OSI</h1>
+    <p class="autor">Materia: Organización Computacional — Prof. Ing. Eduardo Sánchez Reyes</p>
+    
+    <div class="timer-container" id="timer-box">
+        ⏱️ Tiempo Restante: <span id="reloj">15:00</span>
+    </div>
+
+    <div class="container">
+        <p class="instrucciones">
+            <strong>Instrucciones de Red:</strong> Seleccione los componentes de hardware y protocolos correspondientes a cada capa del Modelo OSI desde los menús desplegables para levantar el servidor multimedia de la URC.
+        </p>
+
+        <table class="tabla-osi">
+            <!-- CAPA 4 -->
+            <tr class="fila-capa">
+                <td class="celda-info">
+                    <h3>Capa 4: Transporte</h3>
+                    <p>Control de flujo, segmentación y velocidad de transmisión de streaming.</p>
+                </td>
+                <td class="celda-seleccion">
+                    <select id="select-capa4">
+                        <option value="">-- Seleccionar Elemento --</option>
+                        <option value="udp">⚡ Protocolo UDP (Streaming Rápido)</option>
+                        <option value="fibra">📡 Cable de Fibra Óptica</option>
+                        <option value="nic">📟 Tarjeta de Red (NIC Física)</option>
+                        <option value="bits">🔢 Unidades de "Bits"</option>
+                        <option value="router">🎛️ Router de Alta Velocidad</option>
+                        <option value="tramas">📦 Unidades de "Tramas (Frames)"</option>
+                    </select>
+                </td>
+            </tr>
+
+            <!-- CAPA 3 -->
+            <tr class="fila-capa">
+                <td class="celda-info">
+                    <h3>Capa 3: Red</h3>
+                    <p>Direccionamiento lógico IP, paquetes y enrutamiento hacia los hogares.</p>
+                </td>
+                <td class="celda-seleccion">
+                    <select id="select-capa3">
+                        <option value="">-- Seleccionar Elemento --</option>
+                        <option value="udp">⚡ Protocolo UDP (Streaming Rápido)</option>
+                        <option value="fibra">📡 Cable de Fibra Óptica</option>
+                        <option value="nic">📟 Tarjeta de Red (NIC Física)</option>
+                        <option value="bits">🔢 Unidades de "Bits"</option>
+                        <option value="router">🎛️ Router de Alta Velocidad</option>
+                        <option value="tramas">📦 Unidades de "Tramas (Frames)"</option>
+                    </select>
+                </td>
+            </tr>
+
+            <!-- CAPA 2 HARDWARE -->
+            <tr class="fila-capa">
+                <td class="celda-info">
+                    <h3>Capa 2: Enlace de Datos (Elemento Hardware)</h3>
+                    <p>Direccionamiento físico MAC y control de acceso al medio local.</p>
+                </td>
+                <td class="celda-selection">
+                    <select id="select-capa2-hw">
+                        <option value="">-- Seleccionar Hardware --</option>
+                        <option value="udp">⚡ Protocolo UDP (Streaming Rápido)</option>
+                        <option value="fibra">📡 Cable de Fibra Óptica</option>
+                        <option value="nic">📟 Tarjeta de Red (NIC Física)</option>
+                        <option value="bits">🔢 Unidades de "Bits"</option>
+                        <option value="router">🎛️ Router de Alta Velocidad</option>
+                        <option value="tramas">📦 Unidades de "Tramas (Frames)"</option>
+                    </select>
+                </td>
+            </tr>
+
+            <!-- CAPA 2 PROTOCOLO -->
+            <tr class="fila-capa">
+                <td class="celda-info">
+                    <h3>Capa 2: Enlace de Datos (Unidad de Medida)</h3>
+                    <p>Formato que toman los datos agrupados físicamente en esta capa.</p>
+                </td>
+                <td class="celda-selection">
+                    <select id="select-capa2-proto">
+                        <option value="">-- Seleccionar Unidad --</option>
+                        <option value="udp">⚡ Protocolo UDP (Streaming Rápido)</option>
+                        <option value="fibra">📡 Cable de Fibra Óptica</option>
+                        <option value="nic">📟 Tarjeta de Red (NIC Física)</option>
+                        <option value="bits">🔢 Unidades de "Bits"</option>
+                        <option value="router">🎛️ Router de Alta Velocidad</option>
+                        <option value="tramas">📦 Unidades de "Tramas (Frames)"</option>
+                    </select>
+                </td>
+            </tr>
+
+            <!-- CAPA 1 HARDWARE -->
+            <tr class="fila-capa">
+                <td class="celda-info">
+                    <h3>Capa 1: Física (Medio Físico)</h3>
+                    <p>Infraestructura tangible por donde viaja la señal de video.</p>
+                </td>
+                <td class="celda-selection">
+                    <select id="select-capa1-hw">
+                        <option value="">-- Seleccionar Medio --</option>
+                        <option value="udp">⚡ Protocolo UDP (Streaming Rápido)</option>
+                        <option value="fibra">📡 Cable de Fibra Óptica</option>
+                        <option value="nic">📟 Tarjeta de Red (NIC Física)</option>
+                        <option value="bits">🔢 Unidades de "Bits"</option>
+                        <option value="router">🎛️ Router de Alta Velocidad</option>
+                        <option value="tramas">📦 Unidades de "Tramas (Frames)"</option>
+                    </select>
+                </td>
+            </tr>
+
+            <!-- CAPA 1 PROTOCOLO -->
+            <tr class="fila-capa">
+                <td class="celda-info">
+                    <h3>Capa 1: Física (Unidad de Medida)</h3>
+                    <p>Estado eléctrico o luminoso elemental de la información en el medio.</p>
+                </td>
+                <td class="celda-selection">
+                    <select id="select-capa1-proto">
+                        <option value="">-- Seleccionar Unidad --</option>
+                        <option value="udp">⚡ Protocolo UDP (Streaming Rápido)</option>
+                        <option value="fibra">📡 Cable de Fibra Óptica</option>
+                        <option value="nic">📟 Tarjeta de Red (NIC Física)</option>
+                        <option value="bits">🔢 Unidades de "Bits"</option>
+                        <option value="router">🎛️ Router de Alta Velocidad</option>
+                        <option value="tramas">📦 Unidades de "Tramas (Frames)"</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="controles-btn">
+        <button class="btn" id="btn-verificar">🚀 Lanzar Infraestructura de Servidor</button>
+        <button class="btn" id="btn-reiniciar">🔄 Reiniciar Misión</button>
+    </div>
+    
+    <div class="resultado" id="txt-resultado"></div>
+
+    <script>
+        window.onload = function() {
+            var juegoTerminado = false;
+            var tiempo = 15 * 60; 
+            var cuentaRegresiva;
+            var relojDisplay = document.getElementById('reloj');
+            var resultadoDiv = document.getElementById('txt-resultado');
+            var timerBox = document.getElementById('timer-box');
+            var selectores = document.querySelectorAll('select');
+
+            function iniciarTemporizador() {
+                clearInterval(cuentaRegresiva);
+                cuentaRegresiva = setInterval(function() {
+                    var minutes = Math.floor(tiempo / 60);
+                    var seconds = tiempo % 60;
+                    if (seconds < 10) {
+                        seconds = '0' + seconds;
+                    }
+                    
+                    relojDisplay.innerHTML = minutes + ":" + seconds;
+                    
+                    if (tiempo <= 0) {
+                        clearInterval(cuentaRegresiva);
+                        juegoTerminado = true;
+                        timerBox.style.backgroundColor = "#555";
+                        resultadoDiv.innerHTML = "⌛ ¡Tiempo agotado! El servidor colapsó antes de terminar la configuración.";
+                        resultadoDiv.style.color = "#ff2e63";
+                        bloquearSelectores();
+                    }
+                    tiempo--;
+                }, 1000);
+            }
+
+            function bloquearSelectores() {
+                for (var i = 0; i < selectores.length; i++) {
+                    selectores[i].disabled = true;
+                }
+            }
+
+            function desbloquearSelectores() {
+                for (var i = 0; i < selectores.length; i++) {
+                    selectores[i].disabled = false;
+                }
+            }
+
+            document.getElementById('btn-verificar').onclick = function() {
+                if(juegoTerminado) return;
+                
+                var respuestas = {
+                    'select-capa4': 'udp',
+                    'select-capa3': 'router',
+                    'select-capa2-hw': 'nic',
+                    'select-capa2-proto': 'tramas',
+                    'select-capa1-hw': 'fibra',
+                    'select-capa1-proto': 'bits'
+                };
+                
+                var aciertos = 0;
+                var incompleto = false;
+
+                for (var i = 0; i < selectores.length; i++) {
+                    var select = selectores[i];
+                    var id = select.id;
+                    var valor = select.value;
+                    
+                    if (valor === "") {
+                        incompleto = true;
+                        select.style.border = "2px solid #ffb400";
+                    } else if (valor === respuestas[id]) {
+                        aciertos++;
+                        select.style.border = "2px solid #00ff00";
+                    } else {
+                        select.style.border = "2px solid #ff0000";
+                    }
+                }
+
+                if (incompleto) {
+                    resultadoDiv.innerHTML = "⚠️ Por favor, seleccione un elemento para cada campo antes de lanzar el servidor.";
+                    resultadoDiv.style.color = "#ffb400";
+                    return;
+                }
+
+                if (aciertos === 6) {
+                    clearInterval(cuentaRegresiva);
+                    juegoTerminado = true;
+                    bloquearSelectores();
+                    resultadoDiv.innerHTML = "🏆 ¡Excelente, Ingenieros! El servidor Rosario Castellanos está online a máxima velocidad.";
+                    resultadoDiv.style.color = "#00ff00";
+                } else {
+                    resultadoDiv.innerHTML = "⚠️ Fallas en la arquitectura de red. Configuración correcta: " + aciertos + " de 6 capas validadas.";
+                    resultadoDiv.style.color = "#ff2e63";
+                }
+            };
+
+            document.getElementById('btn-reiniciar').onclick = function() {
+                for (var i = 0; i < selectores.length; i++) {
+                    selectores[i].value = "";
+                    selectores[i].style.border = "2px solid #00adb5";
+                }
+                desbloquearSelectores();
+                juegoTerminado = false;
+                tiempo = 15 * 60;
+                resultadoDiv.innerHTML = "";
+                timerBox.style.backgroundColor = "#ff2e63";
+                iniciarTemporizador();
+            };
+
+            iniciarTemporizador();
+        };
+    </script>
+</body>
+</html>
